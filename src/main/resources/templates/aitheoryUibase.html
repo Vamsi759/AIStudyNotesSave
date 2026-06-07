@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic Subjects Dashboard</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background: #34495e;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.btn:hover {
+    background: #1abc9c;
+}
+
+.subtopics {
+    margin-left: 15px;
+}
+
+/* Content */
+.content {
+    width: 70%;
+    padding: 20px;
+    background: #ecf0f1;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="sidebar" id="sidebar"></div>
+
+    <!-- RIGHT -->
+    <div class="content" id="contentArea">
+        <h2>Welcome</h2>
+        <p>Select a subject to begin.</p>
+    </div>
+
+</div>
+
+<script>
+
+/* ================= DATA STRUCTURE ================= */
+const data = {
+    "C++": {
+        "Data Types": {
+            "int": "Integer type stores whole numbers.",
+            "char": "Character type stores single letter.",
+            "string": "Stores sequence of characters.",
+            "bool": "Stores true or false."
+        },
+        "Control Flow": {
+            "for loop": "Used when number of iterations is known.",
+            "while loop": "Runs until condition is true."
+        }
+    },
+
+    "Java": {
+        "OOPs": {
+            "Inheritance": "Acquiring properties from parent.",
+            "Polymorphism": "Multiple forms of a method."
+        },
+        "Multithreading": {
+            "Thread": "Lightweight process.",
+            "Synchronization": "Controls access to shared data."
+        }
+    },
+
+    "Operating System": {
+        "Process": {
+            "Definition": "Program in execution.",
+            "PCB": "Process Control Block stores process info."
+        },
+        "Deadlock": {
+            "Definition": "Processes waiting forever.",
+            "Conditions": "Mutual exclusion, hold & wait, etc."
+        }
+    }
+};
+
+/* ================= LOAD SUBJECTS ================= */
+function loadSubjects() {
+    let sidebar = document.getElementById("sidebar");
+    sidebar.innerHTML = "<h2>Subjects</h2>";
+
+    for (let subject in data) {
+        let btn = document.createElement("button");
+        btn.className = "btn";
+        btn.innerText = subject;
+        btn.onclick = () => loadTopics(subject);
+
+        sidebar.appendChild(btn);
+    }
+}
+
+/* ================= LOAD TOPICS ================= */
+function loadTopics(subject) {
+    let sidebar = document.getElementById("sidebar");
+    sidebar.innerHTML = `<h2>${subject}</h2>`;
+
+    let backBtn = document.createElement("button");
+    backBtn.innerText = "⬅ Back";
+    backBtn.className = "btn";
+    backBtn.onclick = loadSubjects;
+    sidebar.appendChild(backBtn);
+
+    for (let topic in data[subject]) {
+        let btn = document.createElement("button");
+        btn.className = "btn";
+        btn.innerText = topic;
+        btn.onclick = () => loadSubtopics(subject, topic);
+        sidebar.appendChild(btn);
+    }
+}
+
+/* ================= LOAD SUBTOPICS ================= */
+function loadSubtopics(subject, topic) {
+    let sidebar = document.getElementById("sidebar");
+    sidebar.innerHTML = `<h2>${topic}</h2>`;
+
+    let backBtn = document.createElement("button");
+    backBtn.innerText = "⬅ Back";
+    backBtn.className = "btn";
+    backBtn.onclick = () => loadTopics(subject);
+    sidebar.appendChild(backBtn);
+
+    let subtopics = data[subject][topic];
+
+    for (let sub in subtopics) {
+        let btn = document.createElement("button");
+        btn.className = "btn";
+        btn.innerText = sub;
+        btn.onclick = () => showContent(sub, subtopics[sub]);
+
+        sidebar.appendChild(btn);
+    }
+}
+
+/* ================= SHOW CONTENT ================= */
+function showContent(title, text) {
+    let content = document.getElementById("contentArea");
+
+    content.innerHTML = `
+        <h2>${title}</h2>
+        <p>${text}</p>
+    `;
+}
+
+/* INIT */
+loadSubjects();
+
+</script>
+
+</body>
+</html>
