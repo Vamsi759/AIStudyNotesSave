@@ -252,37 +252,96 @@
     }
 
     /* MOBILE */
-    @media (max-width: 992px) {
-      .container-fluid {
+   /* MOBILE */
+@media (max-width: 992px) {
+
+    .container-fluid {
         flex-direction: column;
         height: auto;
-      }
+    }
 
-      .sidebar,
-      .content {
+    .sidebar {
         width: 100%;
-      }
+        padding: 15px;
+    }
 
-      .sec {
+    .content {
+        width: 100%;
+        padding: 10px;
+        background: #eef2f7;
+    }
+
+    /* Bigger content card */
+    .card {
+        border-radius: 12px !important;
+        margin: 0;
+    }
+
+    .card-header h3 {
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    .card-body {
+        padding: 20px !important;
+    }
+
+    /* THEORY TEXT */
+    #theoryText {
+        font-size: 18px;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .btn-sidebar {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .sub-btn {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    .sec {
         flex-direction: column;
         align-items: center;
-      }
-
-      .ap {
-        width: 100%;
-        max-width: 600px;
-      }
-
-      .aicontainer {
-        flex-direction: column;
-        width: 95%;
-      }
-
-      .zzz,
-      .ztwo {
-        width: 100%;
-      }
     }
+
+    .ap {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .aicontainer {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .zzz,
+    .ztwo {
+        width: 100%;
+    }
+
+    textarea {
+        height: 250px;
+        font-size: 16px;
+    }
+    #theoryText {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+
+    font-size: 20px;
+    line-height: 1.8;
+
+    padding: 10px;
+    margin: 0;
+}
+}
   </style>
 </head>
 
@@ -608,7 +667,7 @@
         };
       }
     }
-   function showContent(title, text) {
+    function showContent(title, text) {
         document.getElementById("contentArea").innerHTML = `
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
