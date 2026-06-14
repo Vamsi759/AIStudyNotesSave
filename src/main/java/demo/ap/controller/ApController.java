@@ -42,10 +42,7 @@ public class ApController {
 	
 	
 	
-	@RequestMapping("/apone")
-	public String denaap() {
-		return "aithoery1";
-	}
+	
 	//-------------
 	
 	@PostMapping("/add")
