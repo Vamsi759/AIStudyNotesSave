@@ -34,6 +34,11 @@ public class ApController {
 	public String denap() {
 		return "add";
 	}
+
+	@RequestMapping("/open7")
+	public String denaap() {
+		return "add7";
+	}
 	
 	
 	
