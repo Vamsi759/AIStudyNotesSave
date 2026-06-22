@@ -20,7 +20,7 @@ import demo.ap.entity.Maincut;
 import demo.ap.entity.Maintopic;
 import demo.ap.entity.Recorddemo;
 import demo.ap.repo.Recorddemorepo;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/apirl")
 public class PracOne {
