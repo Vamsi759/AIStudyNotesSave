@@ -142,25 +142,6 @@ for(int i=0;i<s.length();i++) {
 
 		LinkedHashMap<String, LinkedHashMap<String, LinkedHashMap<String, String>>> den = new LinkedHashMap<String, LinkedHashMap<String, LinkedHashMap<String, String>>>();
 
-//		LinkedHashMap<String, String> a1 = new LinkedHashMap<>();
-//		a1.put("ineger", "stores int numbers");
-//		a1.put("double", "stores decimal numbers");
-//
-//		LinkedHashMap<String, LinkedHashMap<String, String>> a2 = new LinkedHashMap<String, LinkedHashMap<String, String>>();
-//		a2.put("Datatypes", a1);
-//
-//		// -------------------
-//
-//		LinkedHashMap<String, String> a11 = new LinkedHashMap<>();
-//		a1.put("tree", "dad child");
-//		a1.put("list", "nodes");
-//
-//		LinkedHashMap<String, LinkedHashMap<String, String>> a22 = new LinkedHashMap<String, LinkedHashMap<String, String>>();
-//		a2.put("ds", a11);
-//
-//		// below a3
-//
-//		den.put("cpp", a2);
 
 		// -------------------
 		// -------------------
