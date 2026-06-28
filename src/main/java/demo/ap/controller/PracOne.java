@@ -135,7 +135,7 @@ for(int i=0;i<s.length();i++) {
 
 		//n s.substring(si, se) + s.substring(se+1, se+1+me.length()-1);
 */
-		return null;
+		return "maincut";
 	}
 
 	@GetMapping("rl")
